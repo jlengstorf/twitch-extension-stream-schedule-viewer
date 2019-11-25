@@ -11,13 +11,10 @@ const HomePage = () => {
 
   useEffect(() => {
     const fetchCal = async () => {
-      const parsed = await axios.post(
-        'http://localhost:8888/.netlify/functions/get-calendar',
-        {
-          ical:
-            'https://calendar.google.com/calendar/ical/lengstorf.com_9plj1m6u9vtddldoinl0hs2vgk%40group.calendar.google.com/public/basic.ics'
-        }
-      );
+      const parsed = await axios.post('/.netlify/functions/get-calendar', {
+        ical:
+          'https://calendar.google.com/calendar/ical/lengstorf.com_9plj1m6u9vtddldoinl0hs2vgk%40group.calendar.google.com/public/basic.ics'
+      });
 
       const eventList = Object.values(parsed.data).map(event => {
         return {
