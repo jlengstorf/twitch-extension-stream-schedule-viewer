@@ -6,7 +6,23 @@ This extension lets users see upcoming stream event dates/times, as well as desc
 
 ## Development
 
-Currently runs as a gatsby site. To start development, follow the below instructions.
+For convenience, use Netlify Dev.
 
-1. run `yarn` in your command line to install dependencies
-2. To test files live without Twitch, run `yarn develop`.
+```
+# install the Netlify CLI
+yarn global add netlify-cli
+
+# clone this repo
+git clone git@github.com:jlengstorf/twitch-extension-stream-schedule-viewer.git
+
+# move into the directory
+cd twitch-extension-stream-schedule-viewer/
+
+# install dependencies
+yarn
+
+# run Netlify Dev
+netlify dev
+```
+
+The site + serverless functions will be running at `http://localhost:8888`.
