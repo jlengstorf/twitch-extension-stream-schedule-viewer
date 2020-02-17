@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>TKTK</title>
+  </head>
+  <body>
+    <script src="https://extension-files.twitch.tv/helper/v1/twitch-ext.min.js"></script>
+
+    <main>
+      <h1>Jason’s Calendar</h1>
+      <p>Loading...</p>
+    </main>
+  </body>
+</html>
+
+<!-- 
+  const parsed = await axios.post('/.netlify/functions/get-calendar', {
+        ical:
+          'https://calendar.google.com/calendar/ical/lengstorf.com_9plj1m6u9vtddldoinl0hs2vgk%40group.calendar.google.com/public/basic.ics'
+      });
+
+      const eventList = Object.values(parsed.data).map(event => {
+        return {
+          id: event.uid,
+          title: event.summary.replace('LWJ: ', ''),
+          date: new Date(event.start),
+          description: event.description
+        };
+
+            <details>
+        <summary>
+            <h2 sx={{display: 'inline', marginX: 2}}>{event.title}</h2>
+            <time dateTime={event.date}>{event.date.toLocaleDateString()}</time>
+        </summary>
+        {event.description}
+    </details>
+ -->
