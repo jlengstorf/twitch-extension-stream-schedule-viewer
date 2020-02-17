@@ -1,15 +1,18 @@
 /**@jsx jsx */
-import {jsx} from '../contexts/theme-context'
+import { jsx } from '../contexts/theme-context';
 
-import Event from './event'
+import Event from './event';
 
 export const EventList = ({ events }) => (
   <ol>
     {events.map(event => {
       return (
-        <li key={event.id} sx={{
+        <li
+          key={event.id}
+          sx={{
             listStyle: 'none'
-        }}>
+          }}
+        >
           <Event event={event} />
         </li>
       );
@@ -17,4 +20,4 @@ export const EventList = ({ events }) => (
   </ol>
 );
 
-export default EventList
+export default EventList;
