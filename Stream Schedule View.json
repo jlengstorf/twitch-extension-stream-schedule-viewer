@@ -1,11 +1,58 @@
 {
   "allowHttpBackend": false,
-  "backendCommand": "",
-  "backendFolderName": "",
+  "backendCommand": "node index.js",
+  "backendFolderName": "backend",
   "certificateExceptions": [],
-  "extensionViews": [],
+  "extensionViews": [
+    {
+      "id": "1",
+      "label": "yo",
+      "channelId": "256094361",
+      "configurationAnchor": "panel",
+      "displayChannelName": "jlengstorf",
+      "type": "panel",
+      "features": {
+        "isBitsEnabled": false,
+        "isChatEnabled": false,
+        "isSubscriptionStatusAvailable": false
+      },
+      "linked": false,
+      "linkedUserId": "",
+      "mode": "viewer",
+      "isPopout": false,
+      "role": "Broadcaster",
+      "orientation": "Portrait",
+      "frameSize": {
+        "width": 1280,
+        "height": 720
+      }
+    },
+    {
+      "id": "2",
+      "label": "config",
+      "channelId": "256094361",
+      "configurationAnchor": "panel",
+      "displayChannelName": "jlengstorf",
+      "type": "config",
+      "features": {
+        "isBitsEnabled": false,
+        "isChatEnabled": false,
+        "isSubscriptionStatusAvailable": false
+      },
+      "linked": true,
+      "linkedUserId": "265737932",
+      "mode": "config",
+      "isPopout": false,
+      "role": "Broadcaster",
+      "orientation": "Portrait",
+      "frameSize": {
+        "width": 1280,
+        "height": 720
+      }
+    }
+  ],
   "frontendCommand": "",
-  "frontendFolderName": "",
+  "frontendFolderName": "/Users/jlengstorf/learnwithjason/stream-schedule-viewer",
   "manifest": {
     "anchor": "panel",
     "assetUrls": [],
@@ -42,17 +89,17 @@
       "panel": "https://localhost:8080/panel.html"
     },
     "views": {
-      "config": {
-        "canLinkExternalContent": false,
-        "viewerUrl": "https://localhost:8080/config.html"
-      },
       "mobile": {
         "viewerUrl": "https://localhost:8080/mobile.html"
       },
       "panel": {
-        "canLinkExternalContent": false,
+        "viewerUrl": "https://localhost:8080/panel.html",
         "height": 300,
-        "viewerUrl": "https://localhost:8080/panel.html"
+        "canLinkExternalContent": false
+      },
+      "config": {
+        "viewerUrl": "https://localhost:8080/config.html",
+        "canLinkExternalContent": false
       }
     },
     "whitelistedConfigUrls": [],

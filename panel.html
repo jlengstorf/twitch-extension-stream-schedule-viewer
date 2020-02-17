@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>TKTK</title>
+  </head>
+  <body>
+    <script src="https://extension-files.twitch.tv/helper/v1/twitch-ext.min.js"></script>
+
+    <main>
+      <h1>Jason’s Calendar</h1>
+      <p id="loading">Loading...</p>
+      <ol id="events"></ol>
+    </main>
+
+    <template id="event-details">
+      <li>
+        <details>
+          <summary>
+            <h2></h2>
+            <time></time>
+          </summary>
+          <div class="description"></div>
+        </details>
+      </li>
+    </template>
+
+    <script>
+      fetch(
+        'http://localhost:3000?ical=https://calendar.google.com/calendar/ical/lengstorf.com_9plj1m6u9vtddldoinl0hs2vgk%40group.calendar.google.com/public/basic.ics'
+      )
+        .then(res => res.json())
+        .then(res => {
+          const eventList = Object.values(res).map(event => {
+            return {
+              id: event.uid,
+              title: event.summary.replace('LWJ: ', ''),
+              date: new Date(event.start),
+              description: event.description
+            };
+          });
+
+          if ('content' in document.createElement('template')) {
+            const list = document.querySelector('#events');
+            const template = document.querySelector('#event-details');
+
+            eventList.forEach(event => {
+              const el = template.content.cloneNode(true);
+
+              const title = el.querySelector('h2');
+              const time = el.querySelector('time');
+              const description = el.querySelector('.description');
+
+              title.innerText = event.title;
+
+              time.innerText = event.date.toLocaleDateString('en-US');
+              time.setAttribute('datetime', event.date.toISOString());
+
+              description.innerText = event.description;
+
+              list.appendChild(el);
+            });
+
+            document.getElementById('loading').remove();
+          }
+
+          document.getElementById('res').innerText = JSON.stringify(
+            eventList,
+            null,
+            2
+          );
+        });
+    </script>
+  </body>
+</html>
